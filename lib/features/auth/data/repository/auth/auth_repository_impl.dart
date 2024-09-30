@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_model.dart';
 import 'package:learn_all/features/auth/data/models/auth/create_user_req.dart';
@@ -13,17 +12,17 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthFirebaseService authFirebaseService;
 
   @override
-  Future<ApiResultModel<Either>> getUser() {
+  Future<ApiResultModel<String>> getUser() {
     throw UnimplementedError();
   }
 
   @override
-  Future<ApiResultModel<Either>> signIn({SigninUserReq? signinUserReq}) {
+  Future<ApiResultModel<String>> signIn({SigninUserReq? signinUserReq}) {
     throw UnimplementedError();
   }
 
   @override
-  Future<ApiResultModel<Either>> signUp({CreateUserReq? createUserReq}) {
+  Future<ApiResultModel<String>> signUp({CreateUserReq? createUserReq}) {
     throw UnimplementedError();
   }
 }

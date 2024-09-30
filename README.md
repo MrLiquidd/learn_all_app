@@ -1,16 +1,28 @@
 # learn_all
 
-A new Flutter project.
+The project, the idea of which is that people will create collections with educational material and create playlists and share with each other. For example from youtube
 
-## Getting Started
+## Technology Stack
+#### Architecture
+- CLEAN
 
-This project is a starting point for a Flutter application.
+#### State Manager
+- Bloc
 
-A few resources to get you started if this is your first Flutter project:
+#### Networking
+- dio
+- retrofit
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+#### Dependencies Injection
+- get_it
+- injectable
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Roadmap
+
+- Add authentication with firebase
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+

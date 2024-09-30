@@ -43,7 +43,6 @@ dependencies:
   firebase_core:
   firebase_auth:
   cloud_firestore:
-  path_provider: ^2.1.4
 
   # Utils
   logging:
@@ -51,7 +50,7 @@ dependencies:
   freezed:
   flutter_dotenv:
   freezed_annotation: ^2.4.4
-  dartz: ^0.10.1
+  path_provider: ^2.1.4
 
 
 dev_dependencies:
