@@ -1,0 +1,88 @@
+name: learn_all
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  intl:
+
+  cupertino_icons: ^1.0.6
+
+  # Architecture
+  flutter_bloc:
+  hydrated_bloc:
+
+  # Dependencies Injection
+  get_it:
+  injectable:
+
+  # Navigation
+  go_router:
+
+  # Networking
+  http:
+  dio:
+  retrofit:
+  json_annotation:
+
+  # Storage
+  hive_flutter:
+  hive:
+  flutter_secure_storage:
+
+  # Widgets
+  flutter_svg:
+  
+  # Firebase
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  path_provider: ^2.1.4
+
+  # Utils
+  logging:
+  equatable:
+  freezed:
+  flutter_dotenv:
+  freezed_annotation: ^2.4.4
+  dartz: ^0.10.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  build_runner:
+  injectable_generator:
+  retrofit_generator:
+  json_serializable:
+  hive_generator:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/icons/
+    - .env
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Satoshi-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/Satoshi-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Satoshi-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Satoshi-Light.ttf
+          weight: 300

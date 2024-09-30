@@ -1,0 +1,16 @@
+name: learn_localization
+description: Learn all edu app
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  slang:
+  slang_flutter:
+
+dev_dependencies::
+  # thunder_analysis:
+  #   git:
+  #     url:
+  build_runner:
+  slang_build_runner:
