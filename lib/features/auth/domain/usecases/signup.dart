@@ -1,8 +1,9 @@
-import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_model.dart';
-import 'package:learn_all/core/commundomain/usecases/base_params_usecase.dart';
-import 'package:learn_all/features/auth/data/models/auth/create_user_req.dart';
-import 'package:learn_all/features/auth/domain/repository/auth/auth.dart';
+import 'package:injectable/injectable.dart';
+import 'package:learn_all/core/commundomain/commundomain.dart';
+import 'package:learn_all/features/auth/data/models/models.dart';
+import 'package:learn_all/features/auth/domain/repository/repository.dart';
 
+@injectable
 class SignupUseCase implements BaseParamsUseCase<String, CreateUserReq> {
   SignupUseCase(this.authRepository);
 

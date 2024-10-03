@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn_all/app/common/helpers/responsive_ui_helper/responsive_config.dart';
+import 'package:learn_all/core/app/common/helpers/helpers.dart';
 import 'package:learn_all/core/di/app_component/app_component.dart';
+
 
 class BaseResponsiveWidget extends StatelessWidget {
   const BaseResponsiveWidget({

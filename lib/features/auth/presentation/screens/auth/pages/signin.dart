@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learn_all/app/common/helpers/dark_mode/is_dark_mode.dart';
-import 'package:learn_all/app/common/widgets/buttons/basic_app_button.dart';
-import 'package:learn_all/features/auth/presentation/screens/auth/pages/signup.dart';
-import 'package:learn_all/app/library/theme/app_colors.dart';
-import 'package:learn_all/app/library/theme/app_typography.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learn_all/core/app/app.dart';
+import 'package:learn_all/features/auth/data/models/models.dart';
+import 'package:learn_all/features/auth/presentation/screens/screens.dart';
+
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -27,48 +28,66 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: mediaQuery.size.width * 0.1,
-          ),
-          child: Form(
-            key: _formKey,
-            child: Center(
-              child: SingleChildScrollView(
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (_, state) {
+        state.whenOrNull(success: (data) {
+          context.go(Routes.root.path);
+        }, failure: (message) {
+          print(message);
+        });
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: mediaQuery.size.width * 0.1,
+                ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Welcome back!",
-                      style: AppTypography.bigTitle,
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    _emailField(context),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    _passwordField(context),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (BuildContext context) => (),
-                        //   ),
-                        // );
-                      },
-                      child: const Text(
-                        "Forgot password?",
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Welcome back!",
+                            style: AppTypography.bigTitle,
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          _emailField(context),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          _passwordField(context),
+                          TextButton(
+                            onPressed: () {
+                              // Navigator.pushReplacement(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (BuildContext context) => (),
+                              //   ),
+                              // );
+                            },
+                            child: const Text(
+                              "Forgot password?",
+                            ),
+                          ),
+                          BasicAppButton(
+                            onPressed: () async {
+                              context.read<AuthCubit>().signIn(SigninUserReq(
+                                  email: _emailController.text,
+                                  password: _passwordController.text));
+                            },
+                            title: 'Sign In',
+                          ),
+            
+                        ],
                       ),
-                    ),
-                    BasicAppButton(
-                      onPressed: () {},
-                      title: 'Sign In',
                     ),
                     _signUpText(context),
                   ],
@@ -118,12 +137,7 @@ class _SigninPageState extends State<SigninPage> {
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const SignupPage(),
-                ),
-              );
+              context.go(Routes.register.path);
             },
             child: const Text(
               "Register Now",

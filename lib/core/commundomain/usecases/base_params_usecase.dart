@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_model.dart';
 
+
+
 abstract class BaseParamsUseCase<Type, Request> {
   Future<ApiResultModel<Type>> call(Request? params);
 }

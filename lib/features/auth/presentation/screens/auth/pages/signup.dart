@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_all/app/common/helpers/dark_mode/is_dark_mode.dart';
-import 'package:learn_all/app/common/widgets/buttons/basic_app_button.dart';
-import 'package:learn_all/features/auth/presentation/screens/auth/pages/signin.dart';
-import 'package:learn_all/app/library/theme/app_colors.dart';
-import 'package:learn_all/app/library/theme/app_typography.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learn_all/core/app/app.dart';
+import 'package:learn_all/features/auth/data/models/models.dart';
+import 'package:learn_all/features/auth/presentation/screens/screens.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -29,55 +29,73 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: mediaQuery.size.width * 0.1,
-          ),
-          child: Form(
-            key: _formKey,
-            child: Center(
-              child: SingleChildScrollView(
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (_, state) {
+        state.whenOrNull(success: (data) {
+          context.go(Routes.root.path);
+        }, failure: (message) {
+          print(message);
+        });
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: mediaQuery.size.width * 0.1,
+                ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Sign up!",
-                      style: AppTypography.bigTitle,
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    _fullnameField(context),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    _emailField(context),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    _passwordField(context),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (BuildContext context) => SignupPage(),
-                        //   ),
-                        // );
-                      },
-                      child: const Text(
-                        "Forgot password?",
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Sign up!",
+                            style: AppTypography.bigTitle,
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          _fullnameField(context),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          _emailField(context),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          _passwordField(context),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              // Navigator.pushReplacement(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (BuildContext context) => SignupPage(),
+                              //   ),
+                              // );
+                            },
+                            child: const Text(
+                              "Forgot password?",
+                            ),
+                          ),
+                          BasicAppButton(
+                            onPressed: () async {
+                              context.read<AuthCubit>().signUp(CreateUserReq(
+                                  fullname: _fullnameController.text,
+                                  email: _emailController.text,
+                                  password: _passwordController.text));
+                            },
+                            title: 'Sign In',
+                          ),
+                        ],
                       ),
-                    ),
-                    BasicAppButton(
-                      onPressed: () {},
-                      title: 'Sign In',
                     ),
                     _signUpText(context),
                   ],
@@ -92,8 +110,8 @@ class _SignupPageState extends State<SignupPage> {
 
   Widget _fullnameField(BuildContext context) {
     return TextField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
+      controller: _fullnameController,
+      keyboardType: TextInputType.name,
       decoration: InputDecoration(
         hintText: 'Your name or nickname',
         fillColor: context.isDarkMode ? AppColors.darkGrey : AppColors.white,
@@ -138,12 +156,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
           TextButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => const SigninPage(),
-                ),
-              );
+              context.go(Routes.login.path);
             },
             child: const Text(
               "Login",

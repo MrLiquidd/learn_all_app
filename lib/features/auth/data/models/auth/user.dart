@@ -12,14 +12,10 @@ class UserModel {
     this.imageURL
   });
   
-
    UserModel.fromJson(Map<String,dynamic> data) {
     fullName = data['name'];
     email = data['email'];
   }
-
-
-  
 }
 
 extension UserModelX on UserModel {
