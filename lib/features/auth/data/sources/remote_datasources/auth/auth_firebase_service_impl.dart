@@ -53,26 +53,4 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
           errorResultEntity: ErrorResultModel(message: msg));
     }
   }
-
-  @override
-  Future<ApiResultModel<UserEntity>> getUser() async {
-    try {
-      FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-
-      var user = await firebaseFirestore
-          .collection('Users')
-          .doc(firebaseAuth.currentUser?.uid)
-          .get();
-
-      UserModel userModel = UserModel.fromJson(user.data()!);
-      userModel.imageURL =
-          firebaseAuth.currentUser?.photoURL ?? AppUrls.defaultImage;
-      UserEntity userEntity = userModel.toEntity();
-      return ApiResultModel.success(data: userEntity);
-    } catch (e) {
-      return const ApiResultModel.failure(
-          errorResultEntity: ErrorResultModel(message: "An error occurred"));
-    }
-  }
 }

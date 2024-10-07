@@ -9,5 +9,4 @@ abstract class AuthFirebaseService {
   Future<ApiResultModel<String>> signIn(
       {required SigninUserReq? signinUserReq});
 
-  Future<ApiResultModel<UserEntity>> getUser();
 }

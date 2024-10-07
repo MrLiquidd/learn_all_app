@@ -1,10 +1,11 @@
 enum Routes {
-  root("/"),
   splashScreen("/splashscreen"),
 
   /// Home Page
-  dashboard("/dashboard"),
-  settings("/settings"),
+  home("/home"),
+  cources("/cources"),
+  search("/search"),
+  account("/account"),
 
   // Auth Page
   login("/auth/login"),

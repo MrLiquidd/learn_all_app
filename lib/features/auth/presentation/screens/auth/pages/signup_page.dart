@@ -32,9 +32,10 @@ class _SignupPageState extends State<SignupPage> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (_, state) {
         state.whenOrNull(success: (data) {
-          context.go(Routes.root.path);
+          context.go(Routes.home.path);
         }, failure: (message) {
-          print(message);
+          var snackBar = SnackBar(content: Text(message.message.toString()));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         });
       },
       child: Scaffold(

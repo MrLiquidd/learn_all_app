@@ -1,4 +1,4 @@
-import 'package:learn_all/features/auth/domain/entities/auth/user.dart';
+import 'package:learn_all/features/home/domain/entities/home/user.dart';
 
 class UserModel {
 

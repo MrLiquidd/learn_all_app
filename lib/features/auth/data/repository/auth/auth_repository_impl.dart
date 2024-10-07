@@ -3,18 +3,11 @@ import 'package:learn_all/core/core.dart';
 import 'package:learn_all/features/auth/auth.dart';
 import 'package:learn_all/utils/helpers/helpers.dart';
 
-
-
 @Singleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this.authFirebaseService);
 
   final AuthFirebaseService authFirebaseService;
-
-  @override
-  Future<ApiResultModel<String>> getUser() {
-    throw UnimplementedError();
-  }
 
   @override
   Future<ApiResultModel<String>> signIn({SigninUserReq? signinUserReq}) async {

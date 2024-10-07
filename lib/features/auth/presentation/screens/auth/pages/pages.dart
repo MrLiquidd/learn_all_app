@@ -1,2 +1,2 @@
-export 'signin.dart';
-export 'signup.dart';
+export 'signin_page.dart';
+export 'signup_page.dart';
