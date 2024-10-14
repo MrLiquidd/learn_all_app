@@ -20,8 +20,6 @@ class HomeFirebaseServiceImpl extends HomeFirebaseService {
           .get();
 
       UserModel userModel = UserModel.fromJson(user.data()!);
-      userModel.imageURL =
-          firebaseAuth.currentUser?.photoURL ?? AppUrls.defaultImage;
       UserEntity userEntity = userModel.toEntity();
       return ApiResultModel.success(data: userEntity);
     } catch (e) {

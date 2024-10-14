@@ -21,8 +21,6 @@ mixin _$HomeState {
     required TResult Function() loading,
     required TResult Function(UserEntity? data) success,
     required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +28,6 @@ mixin _$HomeState {
     TResult? Function()? loading,
     TResult? Function(UserEntity? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +35,6 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function(UserEntity? data)? success,
     TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,8 +43,6 @@ mixin _$HomeState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,8 +50,6 @@ mixin _$HomeState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,8 +57,6 @@ mixin _$HomeState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,8 +120,6 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(UserEntity? data) success,
     required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
   }) {
     return loading();
   }
@@ -144,8 +130,6 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(UserEntity? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
   }) {
     return loading?.call();
   }
@@ -156,8 +140,6 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(UserEntity? data)? success,
     TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -172,8 +154,6 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
   }) {
     return loading(this);
   }
@@ -184,8 +164,6 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
   }) {
     return loading?.call(this);
   }
@@ -196,8 +174,6 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -278,8 +254,6 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function(UserEntity? data) success,
     required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
   }) {
     return success(data);
   }
@@ -290,8 +264,6 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function(UserEntity? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
   }) {
     return success?.call(data);
   }
@@ -302,8 +274,6 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function(UserEntity? data)? success,
     TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -318,8 +288,6 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
   }) {
     return success(this);
   }
@@ -330,8 +298,6 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
   }) {
     return success?.call(this);
   }
@@ -342,8 +308,6 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -429,8 +393,6 @@ class _$FailureImpl implements _Failure {
     required TResult Function() loading,
     required TResult Function(UserEntity? data) success,
     required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
   }) {
     return failure(message);
   }
@@ -441,8 +403,6 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? loading,
     TResult? Function(UserEntity? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
   }) {
     return failure?.call(message);
   }
@@ -453,8 +413,6 @@ class _$FailureImpl implements _Failure {
     TResult Function()? loading,
     TResult Function(UserEntity? data)? success,
     TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -469,8 +427,6 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
   }) {
     return failure(this);
   }
@@ -481,8 +437,6 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
   }) {
     return failure?.call(this);
   }
@@ -493,8 +447,6 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -511,243 +463,4 @@ abstract class _Failure implements HomeState {
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ShowHideImplCopyWith<$Res> {
-  factory _$$ShowHideImplCopyWith(
-          _$ShowHideImpl value, $Res Function(_$ShowHideImpl) then) =
-      __$$ShowHideImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ShowHideImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$ShowHideImpl>
-    implements _$$ShowHideImplCopyWith<$Res> {
-  __$$ShowHideImplCopyWithImpl(
-      _$ShowHideImpl _value, $Res Function(_$ShowHideImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ShowHideImpl implements _ShowHide {
-  const _$ShowHideImpl();
-
-  @override
-  String toString() {
-    return 'HomeState.showHide()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowHideImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
-    required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
-  }) {
-    return showHide();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
-    TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
-  }) {
-    return showHide?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
-    TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
-    required TResult orElse(),
-  }) {
-    if (showHide != null) {
-      return showHide();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
-  }) {
-    return showHide(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
-  }) {
-    return showHide?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
-    required TResult orElse(),
-  }) {
-    if (showHide != null) {
-      return showHide(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ShowHide implements HomeState {
-  const factory _ShowHide() = _$ShowHideImpl;
-}
-
-/// @nodoc
-abstract class _$$InitImplCopyWith<$Res> {
-  factory _$$InitImplCopyWith(
-          _$InitImpl value, $Res Function(_$InitImpl) then) =
-      __$$InitImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$InitImpl>
-    implements _$$InitImplCopyWith<$Res> {
-  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitImpl implements _Init {
-  const _$InitImpl();
-
-  @override
-  String toString() {
-    return 'HomeState.init()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
-    required TResult Function(ErrorResultModel message) failure,
-    required TResult Function() showHide,
-    required TResult Function() init,
-  }) {
-    return init();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
-    TResult? Function(ErrorResultModel message)? failure,
-    TResult? Function()? showHide,
-    TResult? Function()? init,
-  }) {
-    return init?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
-    TResult Function(ErrorResultModel message)? failure,
-    TResult Function()? showHide,
-    TResult Function()? init,
-    required TResult orElse(),
-  }) {
-    if (init != null) {
-      return init();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_ShowHide value) showHide,
-    required TResult Function(_Init value) init,
-  }) {
-    return init(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-    TResult? Function(_ShowHide value)? showHide,
-    TResult? Function(_Init value)? init,
-  }) {
-    return init?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_ShowHide value)? showHide,
-    TResult Function(_Init value)? init,
-    required TResult orElse(),
-  }) {
-    if (init != null) {
-      return init(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Init implements HomeState {
-  const factory _Init() = _$InitImpl;
 }

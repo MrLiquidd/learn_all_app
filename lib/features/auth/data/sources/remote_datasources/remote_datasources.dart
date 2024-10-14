@@ -1,1 +1,1 @@
-export 'auth/auth_firebase_service.dart';
+export 'auth_firebase_service.dart';

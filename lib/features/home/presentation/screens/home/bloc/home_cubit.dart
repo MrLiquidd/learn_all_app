@@ -17,11 +17,8 @@ class HomeCubit extends Cubit<HomeState> {
     final data = await getUserUseCase.call(NoParams());
 
     data.when(success: (data) {
-      print("success");
-      print(data?.email);
       emit(_Success(data));
     }, failure: (data) {
-      print("data");
       emit(_Failure(data));
     });
   }

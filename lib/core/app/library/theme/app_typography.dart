@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
@@ -10,6 +9,13 @@ class AppTypography {
     fontSize: 35,
     height: 24 / 24,
     fontWeight: FontWeight.w600,
+  );
+
+  static const bigTitleReverse = TextStyle(
+    fontSize: 24,
+    height: 24 / 24,
+    fontWeight: FontWeight.w600,
+    color: Colors.white
   );
 
   static const title = TextStyle(
@@ -28,6 +34,7 @@ class AppTypography {
     fontSize: 14,
     height: 18 / 14,
     fontWeight: FontWeight.w500,
+    color: AppColors.white,
   );
 
   static final smallTextSecondary = smallText.copyWith(color: AppColors.grey);

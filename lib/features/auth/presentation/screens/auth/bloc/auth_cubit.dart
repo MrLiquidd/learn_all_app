@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:learn_all/core/commundomain/entitties/entitties.dart';
 import 'package:learn_all/features/auth/data/models/models.dart';
 import 'package:learn_all/features/auth/domain/usecases/usecases.dart';
+import 'package:learn_all/utils/services/services.dart';
 
 part 'auth_cubit.freezed.dart';
 part 'auth_state.dart';
@@ -35,5 +36,11 @@ class AuthCubit extends Cubit<AuthState> {
     }, failure: (data) {
       emit(_Failure(data));
     });
+  }
+
+  Future<void> logout() async {
+    emit(const _Loading());
+    await MainBoxMixin().logoutBox();
+    emit(const _Success(null));
   }
 }

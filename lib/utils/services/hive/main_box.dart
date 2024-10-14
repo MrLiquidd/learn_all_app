@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 import 'package:learn_all/utils/utils.dart';
 
 enum ActiveTheme {
@@ -21,6 +22,7 @@ enum MainBoxKeys {
   isLogin,
 }
 
+@Singleton()
 mixin class MainBoxMixin {
   static late Box? mainBox;
   static const _boxName = 'flutter_auth_app';

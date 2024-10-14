@@ -13,7 +13,9 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: signinUserReq?.email ?? "",
           password: signinUserReq?.password ?? "");
+      
       return const ApiResultModel.success(data: "Signip was successful");
+
     } on FirebaseAuthException catch (e) {
       String msg = "";
 
