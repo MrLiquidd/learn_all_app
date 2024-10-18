@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:learn_all/core/commundomain/entitties/based_api_result/error_result_model.dart';
+import 'package:learn_all/core/commundomain/entities/based_api_result/error_result_model.dart';
 
 part 'api_result_model.freezed.dart';
 

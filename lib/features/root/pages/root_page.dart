@@ -13,7 +13,6 @@ class RootPage extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        
         //Настройка внешнего вида
         elevation: 0,
         selectedItemColor: AppColors.primary,

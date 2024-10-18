@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:learn_all/core/commundomain/entitties/entitties.dart';
+import 'package:learn_all/core/commundomain/entities/entitties.dart';
 import 'package:learn_all/features/auth/data/models/models.dart';
 import 'package:learn_all/features/auth/domain/usecases/usecases.dart';
 import 'package:learn_all/utils/services/services.dart';

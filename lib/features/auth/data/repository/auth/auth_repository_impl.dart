@@ -19,7 +19,6 @@ class AuthRepositoryImpl implements AuthRepository {
       return _result.when(
         success: (String result) {
           mainBoxMixin.addData(MainBoxKeys.isLogin, true);
-          mainBoxMixin.addData(MainBoxKeys.token, result);
           return ApiResultModel<String>.success(data: result);
         },
         failure: (ErrorResultModel errorResultModel) {

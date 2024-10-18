@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_all/core/core.dart';
 import 'package:learn_all/features/home/domain/entities/entities.dart';
-import 'package:learn_all/features/home/presentation/screens/home/bloc/home_cubit.dart';
+import 'package:learn_all/features/home/presentation/screens/home/bloc/user/user_cubit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,25 +11,38 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
+  late final AppLifecycleListener _listener;
 
   @override
   void initState() {
     super.initState();
+    _listener = AppLifecycleListener(
+      onShow: () => print('show'),
+      onResume: () => print('resume'),
+      onInactive: () => print('inactive'),
+      onHide: () => print('hide'),
+      onPause: () => print('pause'),
+      onDetach: () => print('detach'),
+      onRestart: () => print('restart'),
+    );
   }
+ 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.lightBackground,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: RefreshIndicator(
-              onRefresh: () {
-                return context.read<HomeCubit>().getUser();
-              },
-              child: _buildBody()),
+      body: AnimatedGradientBackground(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: RefreshIndicator(
+                onRefresh: () {
+                  return context.read<HomeCubit>().getData();
+                },
+                child: _buildBody()),
+          ),
         ),
       ),
     );
@@ -54,9 +67,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // _appBar(data),
             _header(data),
-
             _learningPlan(data),
           ],
         ),
@@ -105,27 +116,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         // White container that overlaps the header
-        Positioned(
-          bottom: -50, // Controls how much it overlaps
-          left: 16,
-          right: 16,
-          child: Container(
-            height: 100,
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: const LearnedToday(),
-          ),
-        ),
       ],
     );
   }
@@ -134,8 +124,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 60),
-        // Learning Plan
+        const SizedBox(height: 20),
         const Text(
           'Learning Plan',
           style: TextStyle(

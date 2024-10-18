@@ -4,8 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'package:learn_all/core/commundomain/commundomain.dart';
 import 'package:learn_all/features/home/domain/domain.dart';
 
-part 'home_cubit.freezed.dart';
-part 'home_state.dart';
+part 'user_cubit.freezed.dart';
+part 'user_state.dart';
 
 @injectable
 class HomeCubit extends Cubit<HomeState> {
@@ -13,9 +13,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   final GetUserUseCase getUserUseCase;
 
-  Future<void> getUser() async {
+  Future<void> getData() async {
     final data = await getUserUseCase.call(NoParams());
-
     data.when(success: (data) {
       emit(_Success(data));
     }, failure: (data) {

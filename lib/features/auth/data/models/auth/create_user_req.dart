@@ -1,11 +1,11 @@
-class CreateUserReq {
+import 'signin_user_req.dart';
+
+class CreateUserReq extends SigninUserReq {
   final String fullname;
-  final String email;
-  final String password;
 
   CreateUserReq({
-    required this.fullname, 
-    required this.email, 
-    required this.password
+    required this.fullname,
+    required super.email,
+    required super.password,
   });
 }

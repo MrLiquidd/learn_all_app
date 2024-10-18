@@ -1,7 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:learn_all/core/commundomain/commundomain.dart';
-import 'package:learn_all/features/auth/domain/entities/entities.dart';
-import 'package:learn_all/features/home/domain/repository/repository.dart';
+import 'package:learn_all/features/home/domain/domain.dart';
 
 @injectable
 class GetUserUseCase implements BaseParamsUseCase<UserEntity?, NoParams> {

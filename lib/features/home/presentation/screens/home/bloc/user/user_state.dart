@@ -1,4 +1,4 @@
-part of 'home_cubit.dart';
+part of 'user_cubit.dart';
 
 @freezed
 class HomeState with _$HomeState {

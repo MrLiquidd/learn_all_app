@@ -12,16 +12,22 @@ class LearnAllApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppRouterConfig.setStream(context);
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ThemeCubit()),
         BlocProvider(
-            create: (_) =>
-                AuthCubit(inject<SignupUseCase>(), inject<SigninUseCase>())),
+          create: (_) => ThemeCubit(),
+        ),
+        BlocProvider(
+          create: (_) => AuthCubit(
+            inject<SignupUseCase>(),
+            inject<SigninUseCase>(),
+          ),
+        ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
-        builder: (context, mode) => MaterialApp.router(
+        builder: (context, mode) {
+          AppRouterConfig.setStream(context);
+          return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouterConfig.router,
           theme: AppTheme.lightTheme,
@@ -34,7 +40,8 @@ class LearnAllApp extends StatelessWidget {
           //   GlobalWidgetsLocalizations.delegate,
           //   GlobalCupertinoLocalizations.delegate
           // ],
-        ),
+        );
+        },
       ),
     );
   }

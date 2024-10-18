@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_model.dart';
-import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_state.dart';
-import 'package:learn_all/core/commundomain/entitties/based_api_result/error_result_model.dart';
+import 'package:learn_all/core/commundomain/entities/based_api_result/api_result_model.dart';
+import 'package:learn_all/core/commundomain/entities/based_api_result/api_result_state.dart';
+import 'package:learn_all/core/commundomain/entities/based_api_result/error_result_model.dart';
 import 'package:learn_all/core/commundomain/usecases/base_params_usecase.dart';
 
 class BaseViewModel extends ChangeNotifier {

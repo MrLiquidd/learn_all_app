@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_cubit.dart';
+part of 'my_course_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,25 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$MyCourseState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
+    required TResult Function(List<CourseEntity?>? data) success,
     required TResult Function(ErrorResultModel message) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
+    TResult? Function(List<CourseEntity?>? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
+    TResult Function(List<CourseEntity?>? data)? success,
     TResult Function(ErrorResultModel message)? failure,
     required TResult orElse(),
   }) =>
@@ -63,15 +63,16 @@ mixin _$HomeState {
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
+abstract class $MyCourseStateCopyWith<$Res> {
+  factory $MyCourseStateCopyWith(
+          MyCourseState value, $Res Function(MyCourseState) then) =
+      _$MyCourseStateCopyWithImpl<$Res, MyCourseState>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
-    implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$MyCourseStateCopyWithImpl<$Res, $Val extends MyCourseState>
+    implements $MyCourseStateCopyWith<$Res> {
+  _$MyCourseStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,7 +89,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$MyCourseStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -102,7 +103,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'HomeState.loading()';
+    return 'MyCourseState.loading()';
   }
 
   @override
@@ -118,7 +119,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
+    required TResult Function(List<CourseEntity?>? data) success,
     required TResult Function(ErrorResultModel message) failure,
   }) {
     return loading();
@@ -128,7 +129,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
+    TResult? Function(List<CourseEntity?>? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
   }) {
     return loading?.call();
@@ -138,7 +139,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
+    TResult Function(List<CourseEntity?>? data)? success,
     TResult Function(ErrorResultModel message)? failure,
     required TResult orElse(),
   }) {
@@ -183,7 +184,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements HomeState {
+abstract class _Loading implements MyCourseState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -193,12 +194,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserEntity? data});
+  $Res call({List<CourseEntity?>? data});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$MyCourseStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -211,9 +212,9 @@ class __$$SuccessImplCopyWithImpl<$Res>
   }) {
     return _then(_$SuccessImpl(
       freezed == data
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserEntity?,
+              as List<CourseEntity?>?,
     ));
   }
 }
@@ -221,14 +222,21 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.data);
+  const _$SuccessImpl(final List<CourseEntity?>? data) : _data = data;
 
+  final List<CourseEntity?>? _data;
   @override
-  final UserEntity? data;
+  List<CourseEntity?>? get data {
+    final value = _data;
+    if (value == null) return null;
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'HomeState.success(data: $data)';
+    return 'MyCourseState.success(data: $data)';
   }
 
   @override
@@ -236,11 +244,12 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -252,7 +261,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
+    required TResult Function(List<CourseEntity?>? data) success,
     required TResult Function(ErrorResultModel message) failure,
   }) {
     return success(data);
@@ -262,7 +271,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
+    TResult? Function(List<CourseEntity?>? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
   }) {
     return success?.call(data);
@@ -272,7 +281,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
+    TResult Function(List<CourseEntity?>? data)? success,
     TResult Function(ErrorResultModel message)? failure,
     required TResult orElse(),
   }) {
@@ -317,10 +326,10 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements HomeState {
-  const factory _Success(final UserEntity? data) = _$SuccessImpl;
+abstract class _Success implements MyCourseState {
+  const factory _Success(final List<CourseEntity?>? data) = _$SuccessImpl;
 
-  UserEntity? get data;
+  List<CourseEntity?>? get data;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -337,7 +346,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$FailureImpl>
+    extends _$MyCourseStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
@@ -367,7 +376,7 @@ class _$FailureImpl implements _Failure {
 
   @override
   String toString() {
-    return 'HomeState.failure(message: $message)';
+    return 'MyCourseState.failure(message: $message)';
   }
 
   @override
@@ -391,7 +400,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(UserEntity? data) success,
+    required TResult Function(List<CourseEntity?>? data) success,
     required TResult Function(ErrorResultModel message) failure,
   }) {
     return failure(message);
@@ -401,7 +410,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(UserEntity? data)? success,
+    TResult? Function(List<CourseEntity?>? data)? success,
     TResult? Function(ErrorResultModel message)? failure,
   }) {
     return failure?.call(message);
@@ -411,7 +420,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(UserEntity? data)? success,
+    TResult Function(List<CourseEntity?>? data)? success,
     TResult Function(ErrorResultModel message)? failure,
     required TResult orElse(),
   }) {
@@ -456,7 +465,7 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements HomeState {
+abstract class _Failure implements MyCourseState {
   const factory _Failure(final ErrorResultModel message) = _$FailureImpl;
 
   ErrorResultModel get message;

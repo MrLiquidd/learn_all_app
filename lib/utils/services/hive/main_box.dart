@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
+import 'package:learn_all/features/home/domain/domain.dart';
 import 'package:learn_all/utils/utils.dart';
 
 enum ActiveTheme {
@@ -20,16 +21,20 @@ enum MainBoxKeys {
   theme,
   locale,
   isLogin,
+  user,
+  courses,
 }
 
 @Singleton()
 mixin class MainBoxMixin {
   static late Box? mainBox;
-  static const _boxName = 'flutter_auth_app';
+  static const _boxName = 'flutter_learn_app';
 
   static Future<void> initHive(String prefixBox) async {
     // Initialize hive (persistent database)
     await Hive.initFlutter();
+    Hive.registerAdapter<UserEntity>(UserEntityAdapter());
+    Hive.registerAdapter<CourseEntity>(CourseEntityAdapter());
     mainBox = await Hive.openBox("$prefixBox$_boxName");
   }
 
@@ -42,6 +47,8 @@ mixin class MainBoxMixin {
   }
 
   T getData<T>(MainBoxKeys key) => mainBox?.get(key.name) as T;
+
+  List<T> getAll<T>(MainBoxKeys key) => mainBox?.get(key.name) as List<T>;
 
   Future<void> logoutBox() async {
     /// Clear the box

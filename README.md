@@ -10,6 +10,7 @@ The project, the idea of which is that people will create collections with educa
 - Bloc
 
 #### Networking
+- firebase
 - dio
 - retrofit
 
@@ -17,9 +18,6 @@ The project, the idea of which is that people will create collections with educa
 - get_it
 - injectable
 
-## Roadmap
-
-- Add authentication with firebase
 
 
 ## License

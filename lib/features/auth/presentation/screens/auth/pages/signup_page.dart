@@ -39,67 +39,69 @@ class _SignupPageState extends State<SignupPage> {
         });
       },
       child: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: mediaQuery.size.width * 0.1,
-                ),
-                child: Column(
-                  children: [
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Sign up!",
-                            style: AppTypography.bigTitle,
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          _fullnameField(context),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          _emailField(context),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          _passwordField(context),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              // Navigator.pushReplacement(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (BuildContext context) => SignupPage(),
-                              //   ),
-                              // );
-                            },
-                            child: const Text(
-                              "Forgot password?",
+        body: AnimatedGradientBackground(
+          child: SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: mediaQuery.size.width * 0.1,
+                  ),
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Sign up!",
+                              style: AppTypography.bigTitle,
                             ),
-                          ),
-                          BasicAppButton(
-                            onPressed: () async {
-                              context.read<AuthCubit>().signUp(CreateUserReq(
-                                  fullname: _fullnameController.text,
-                                  email: _emailController.text,
-                                  password: _passwordController.text));
-                            },
-                            title: 'Sign In',
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 40,
+                            ),
+                            _fullnameField(context),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            _emailField(context),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            _passwordField(context),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                // Navigator.pushReplacement(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (BuildContext context) => SignupPage(),
+                                //   ),
+                                // );
+                              },
+                              child: const Text(
+                                "Forgot password?",
+                              ),
+                            ),
+                            BasicAppButton(
+                              onPressed: () async {
+                                context.read<AuthCubit>().signUp(CreateUserReq(
+                                    fullname: _fullnameController.text,
+                                    email: _emailController.text,
+                                    password: _passwordController.text));
+                              },
+                              title: 'Sign In',
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    _signUpText(context),
-                  ],
+                      _signUpText(context),
+                    ],
+                  ),
                 ),
               ),
             ),

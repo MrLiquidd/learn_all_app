@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:learn_all/core/commundomain/entitties/based_api_result/api_result_model.dart';
+import 'package:learn_all/core/commundomain/entities/based_api_result/api_result_model.dart';
 
 
 

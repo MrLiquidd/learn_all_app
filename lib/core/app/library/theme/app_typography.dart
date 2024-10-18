@@ -6,9 +6,10 @@ import 'app_colors.dart';
 class AppTypography {
 
   static const bigTitle = TextStyle(
-    fontSize: 35,
+    fontSize: 40,
     height: 24 / 24,
     fontWeight: FontWeight.w600,
+    color: Colors.white
   );
 
   static const bigTitleReverse = TextStyle(
@@ -34,7 +35,6 @@ class AppTypography {
     fontSize: 14,
     height: 18 / 14,
     fontWeight: FontWeight.w500,
-    color: AppColors.white,
   );
 
   static final smallTextSecondary = smallText.copyWith(color: AppColors.grey);

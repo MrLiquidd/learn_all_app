@@ -12,7 +12,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.transparent,
-      contentPadding: const EdgeInsets.all(30),
+      contentPadding: const EdgeInsets.all(20),
       hintStyle: const TextStyle(
         color: Color(0xff383838),
         fontWeight: FontWeight.w500,

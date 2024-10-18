@@ -1,7 +1,6 @@
-import 'package:learn_all/features/home/domain/entities/home/user.dart';
+import 'package:learn_all/features/home/domain/entities/home/user/user.dart';
 
 class UserModel {
-
   String ? fullName;
   String ? email;
   String ? imageURL;

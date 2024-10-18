@@ -38,60 +38,62 @@ class _SigninPageState extends State<SigninPage> {
         });
       },
       child: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: mediaQuery.size.width * 0.1,
-                ),
-                child: Column(
-                  children: [
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Welcome back!",
-                            style: AppTypography.bigTitle,
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          _emailField(context),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          _passwordField(context),
-                          TextButton(
-                            onPressed: () {
-                              // Navigator.pushReplacement(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (BuildContext context) => (),
-                              //   ),
-                              // );
-                            },
-                            child: const Text(
-                              "Forgot password?",
+        body: AnimatedGradientBackground(
+          child: SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: mediaQuery.size.width * 0.1,
+                  ),
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Welcome back!",
+                              style: AppTypography.bigTitle,
                             ),
-                          ),
-                          BasicAppButton(
-                            onPressed: () async {
-                              context.read<AuthCubit>().signIn(SigninUserReq(
-                                  email: _emailController.text,
-                                  password: _passwordController.text));
-                            },
-                            title: 'Sign In',
-                          ),
-            
-                        ],
+                            const SizedBox(
+                              height: 40,
+                            ),
+                            _emailField(context),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            _passwordField(context),
+                            TextButton(
+                              onPressed: () {
+                                // Navigator.pushReplacement(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (BuildContext context) => (),
+                                //   ),
+                                // );
+                              },
+                              child: const Text(
+                                "Forgot password?",
+                              ),
+                            ),
+                            BasicAppButton(
+                              onPressed: () async {
+                                context.read<AuthCubit>().signIn(SigninUserReq(
+                                    email: _emailController.text,
+                                    password: _passwordController.text));
+                              },
+                              title: 'Sign In',
+                            ),
+              
+                          ],
+                        ),
                       ),
-                    ),
-                    _signUpText(context),
-                  ],
+                      _signUpText(context),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -125,7 +127,7 @@ class _SigninPageState extends State<SigninPage> {
 
   Widget _signUpText(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -2,14 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:learn_all/core/app/router/go_router_refresh_stream.dart';
 import 'package:learn_all/core/di/di.dart';
-import 'package:learn_all/features/account/account.dart';
-import 'package:learn_all/features/auth/domain/usecases/usecases.dart';
-import 'package:learn_all/features/auth/presentation/screens/screens.dart';
-import 'package:learn_all/features/home/domain/usecases/usecases.dart';
-import 'package:learn_all/features/home/presentation/screens/home/bloc/home_cubit.dart';
-import 'package:learn_all/features/home/presentation/screens/home/home.dart';
-import 'package:learn_all/features/root/pages/root_page.dart';
+import 'package:learn_all/features/features.dart';
 import 'package:learn_all/utils/services/hive/hive.dart';
 
 import 'app_route.dart';
@@ -25,7 +20,7 @@ class AppRouterConfig {
     initialLocation: Routes.login.path,
     routerNeglect: true,
     debugLogDiagnostics: kDebugMode,
-    // refreshListenable: GoRouterRefreshStream(context.read<AuthCubit>().stream),
+    refreshListenable: GoRouterRefreshStream(context.read<AuthCubit>().stream),
     redirect: (_, GoRouterState state) {
       final bool isLoginPage = state.matchedLocation == Routes.login.path ||
           state.matchedLocation == Routes.register.path;
@@ -60,7 +55,7 @@ class AppRouterConfig {
             GoRoute(
               path: Routes.home.path,
               builder: (context, state) => BlocProvider(
-                create: (_) => HomeCubit(inject<GetUserUseCase>())..getUser(),
+                create: (_) => HomeCubit(inject<GetUserUseCase>())..getData(),
                 child: const HomePage(),
               ),
               // routes: [
@@ -76,7 +71,11 @@ class AppRouterConfig {
           routes: [
             GoRoute(
               path: Routes.cources.path,
-              builder: (context, state) => Container(),
+              builder: (context, state) => BlocProvider(
+                create: (_) =>
+                    MyCourseCubit(inject<GetCourcesUseCase>())..getData(),
+                child: const CourcesPage(),
+              ),
             ),
           ],
         ),
